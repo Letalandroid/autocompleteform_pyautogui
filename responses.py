@@ -16,7 +16,7 @@ def welcome():
         press('down')
     press('tab')
     press('enter')
-    print('[!] Welcome Finish')
+    print('\n[!] Welcome Finish')
 
 def personalData(): # Pata no los doxees pes :v
     sleep(windowChangeTime)
