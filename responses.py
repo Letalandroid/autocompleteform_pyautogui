@@ -3,7 +3,7 @@ from random import choice, randint
 from time import sleep
 
 nombres = ['Juan', 'Joaquin', 'Esmeralda', 'Josue', 'Gustavo', 'Mucho doxeo por un dia']
-windowChageTime = 3
+windowChangeTime = 3
 windowOpenTime = 7
 
 # Execute welcome (cierta persona quiso pedir permisos al usuario)
@@ -19,7 +19,7 @@ def welcome():
     print('[!] Welcome Finish')
 
 def personalData(): # Pata no los doxees pes :v
-    sleep(windowChageTime)
+    sleep(windowChangeTime)
     genName()
     genAge()
     genSex()
@@ -27,10 +27,11 @@ def personalData(): # Pata no los doxees pes :v
     genGrade()
     press('tab')
     press('enter')
+    print('[!] PersonalData Finish')
 
 def questions():
     answers = 27
-    sleep(windowChageTime)
+    sleep(windowChangeTime)
 
     for _ in range(3):
         press('tab')
@@ -43,6 +44,8 @@ def questions():
         press('tab')
     press('tab')
     press('enter')
+    print('[!] Questions Finish')
+    sleep(windowChangeTime)
 
 
 def genName():
@@ -53,7 +56,7 @@ def genName():
     write(name)
 
 def genAge():
-    age = randint(16, 50)
+    age = randint(18, 30)
     press('tab')
     write(f'{age}')
 
