@@ -16,7 +16,7 @@ for c in range(count):
     print(f'Running on: {count - c}')
     sleep(1)
 
-for _ in range(countResponses):
+for i in range(countResponses):
     open(url, 2) # Abrir URL
 
     sleep(5)    # Esperar a que este lista
@@ -32,5 +32,6 @@ for _ in range(countResponses):
 
     sleep(3)
     hotkey('ctrl', 'w')
+    print(f'\nQuestion {i + 1} OK.')
 
 print('\n[!] App Finish')
