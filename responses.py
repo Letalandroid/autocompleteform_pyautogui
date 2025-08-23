@@ -7,18 +7,19 @@ def first_questions():
     resQuestions(1, 4)
     resQuestions(1)
 
-    print('[!] Questions Finish')
+    print('[!] First Questions Finish')
 
 def questions():
     answers = 46
-    resQuestions(answers)
+    resQuestions(answers, initPoint=2)
 
     print('[!] Questions Finish')
 
-def resQuestions(answers: int, maxQuestions: int = 5):
+def resQuestions(answers: int, maxQuestions: int = 5, initPoint: int = 0):
 
     for _ in range(answers):
-        responses = randint(0, maxQuestions - 1)
+        responses = randint(initPoint, maxQuestions - 1)
+        print(initPoint, responses)
         salt = maxQuestions - responses
 
         for _ in range(responses):
