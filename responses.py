@@ -1,80 +1,30 @@
-from pyautogui import press, click, write
-from random import choice, randint
-from time import sleep
+from pyautogui import press
+from random import randint
 
-nombres = ['Juan', 'Joaquin', 'Esmeralda', 'Josue', 'Gustavo', 'Mucho doxeo por un dia']
-windowChangeTime = 3
-windowOpenTime = 7
 
-# Execute welcome (cierta persona quiso pedir permisos al usuario)
-def welcome():
-    sleep(windowOpenTime)
-    click()
-    for _ in range(3):
-        press('tab')
-    for _ in range(2):
-        press('down')
-    press('tab')
-    press('enter')
-    print('\n[!] Welcome Finish')
+def first_questions():
+    resQuestions(1)
+    resQuestions(1, 4)
+    resQuestions(1)
 
-def personalData(): # Pata no los doxees pes :v
-    sleep(windowChangeTime)
-    genName()
-    genAge()
-    genSex()
-    genState()
-    genGrade()
-    press('tab')
-    press('enter')
-    print('[!] PersonalData Finish')
+    print('[!] Questions Finish')
 
 def questions():
-    answers = 27
-    sleep(windowChangeTime)
+    answers = 46
+    resQuestions(answers)
 
-    for _ in range(3):
-        press('tab')
+    print('[!] Questions Finish')
+
+def resQuestions(answers: int, maxQuestions: int = 5):
 
     for _ in range(answers):
-        responses = randint(1, 5)
+        responses = randint(0, maxQuestions - 1)
+        salt = maxQuestions - responses
 
         for _ in range(responses):
-            press('down')
-        press('tab')
-    press('tab')
-    press('enter')
-    print('[!] Questions Finish')
-    sleep(windowChangeTime)
+            press('tab')
 
+        press('space')
 
-def genName():
-    name = choice(nombres)
-
-    for _ in range(3):
-        press('tab')
-    write(name)
-
-def genAge():
-    age = randint(18, 30)
-    press('tab')
-    write(f'{age}')
-
-def genSex():
-    count = randint(1, 2)
-    press('tab')
-    for _ in range(count):
-        press('down')
-
-def genState():
-    count = randint(1, 4)
-    press('tab')
-    for _ in range(count):
-        press('down')
-
-def genGrade():
-    count = randint(1, 10)
-    press('tab')
-    for _ in range(count):
-        press('down')
-    press('tab')
+        for _ in range(salt):
+            press('tab')

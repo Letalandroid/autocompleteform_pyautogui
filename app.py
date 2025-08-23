@@ -1,11 +1,10 @@
-from pyautogui import hotkey
+from pyautogui import hotkey, click
 from webbrowser import open
 from responses import *
-
-# https://docs.google.com/forms/d/e/1FAIpQLScGCy48n59edD9kVyoqV8QkphBMLpaJgf-zeKwty9WTQuzrBQ/viewform
+from time import sleep
 
 # url = input('URL del formulario: ')
-url = 'https://docs.google.com/forms/d/e/1FAIpQLScGCy48n59edD9kVyoqV8QkphBMLpaJgf-zeKwty9WTQuzrBQ/viewform'
+url = 'https://docs.google.com/forms/d/e/1FAIpQLSfg5OzObDummVVBx_oj91IK1kQL8-5aCjLLuZsfF_FhzYTgVw/viewform'
 
 print('')
 countResponses = int(input('Introduzca el número de respuestas deseadas: '))
@@ -18,14 +17,20 @@ for c in range(count):
     sleep(1)
 
 for _ in range(countResponses):
-    try:
-        open(url, 2)
-    except:
-        print('URL Inválida.')
+    open(url, 2) # Abrir URL
 
-    welcome()
-    personalData()
+    sleep(5)    # Esperar a que este lista
+    click()     # Y darle focus
+
+    for _ in range(3): # Centrarnos en la primera pregunta
+        press('tab')
+
+    first_questions()
     questions()
+
+    press('enter')
+
+    sleep(3)
     hotkey('ctrl', 'w')
 
 print('\n[!] App Finish')
