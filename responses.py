@@ -19,7 +19,6 @@ def resQuestions(answers: int, maxQuestions: int = 5, initPoint: int = 0):
 
     for _ in range(answers):
         responses = randint(initPoint, maxQuestions - 1)
-        print(initPoint, responses)
         salt = maxQuestions - responses
 
         for _ in range(responses):
